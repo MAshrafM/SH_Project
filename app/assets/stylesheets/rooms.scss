@@ -1,0 +1,66 @@
+.list-room {
+  li {
+    margin-bottom: 20px;
+  }
+}
+
+.room-item {
+  position: relative;
+  a {
+    .room-title-block {
+      position: absolute;
+      bottom: 0;
+      width: 300px;
+      height: 50px;
+      display: block;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      font-size: 1.4em;
+      transition: height 0.7s;
+      -moz-transition: height 0.7s;
+      -webkit-transition: height 0.7s;
+      -o-transition: height 0.7s;
+      -ms-transition: height 0.7s;
+    }
+    &:hover {
+      .room-title-block {
+        height: 300px;
+        transition: height 0.7s;
+        -moz-transition: height 0.7s;
+        -webkit-transition: height 0.7s;
+        -o-transition: height 0.7s;
+        -ms-transition: height 0.7s;
+        .ranking {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.room-title {
+  display: block;
+  color: #B80000;
+}
+
+.ranking {
+  text-align: center;
+  padding: 13px;
+  border: 3px solid #B80000;
+  border-radius: 15px;
+  color: #B80000;
+  margin-top: 60px;
+  display: none;
+}
+
+.device{
+	margin-top:15px auto;
+}
+
+.form-bord{
+  border: 2px dashed #afafaf;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom:10px;
+  padding:10px;
+}

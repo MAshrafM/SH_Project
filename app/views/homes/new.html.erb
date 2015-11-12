@@ -1,0 +1,29 @@
+<h2 class="text-center">Log In</h2>
+<div style="padding:25px;"></div>
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<div class="form-bord">
+<%= form_for(:user, url: homes_path, :html => {:class => "form-horizontal"}) do |f| %>
+						<div class="form-group">
+							<label class="col-xs-3 control-label">Name</label>
+							<div class="col-xs-8">
+								<%= f.text_field :username, :class => "form-control" %>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-3 control-label">Password</label>
+							<div class="col-xs-8">
+								<%= f.password_field :password, :class => "form-control" %>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-3 col-xs-offset-2"><%= f.submit "Login", :class => "btn btn-primary btn-block"%></div>
+							<div class="col-xs-3 col-xs-offset-2"><%= link_to "Cancel", root_path, class:"btn btn-default btn-block" %></div>
+						</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+<div style="padding:45px;"></div>

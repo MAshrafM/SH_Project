@@ -1,0 +1,35 @@
+<table class="table table-bordered">
+<tr><th>Device</th><th class="text-center">Status</th></tr>
+<tr><td>Light</td><td class="text-center">
+				<% if device.light %>
+					<%= content_tag(:i, " on", class: "fa fa-lightbulb-o fa-lg green") %>
+				<% else %>
+					<%= content_tag(:i, " off", class: "fa fa-lightbulb-o fa-lg red") %>
+				<% end %>
+</td></tr>
+			
+<tr><td>AC</td><td class="text-center"><%= device.ac %> &#8451;</td></tr>
+<tr><td>Door</td><td class="text-center">
+				<% if device.door %>
+					<%= content_tag(:i, " on", class: "fa fa-home fa-lg green") %>
+				<% else %>
+					<%= content_tag(:i, " off", class: "fa fa-home fa-lg red") %>
+				<% end %>
+</td></tr>
+<tr><td>Shades</td><td class="text-center">
+				<% if device.shade %>
+					<%= content_tag(:i, " on", class: "fa fa-th-large fa-lg green") %>
+				<% else %>
+					<%= content_tag(:i, " off", class: "fa fa-th-large fa-lg red") %>
+				<% end %>
+</td></tr>
+<tr><td>Camera</td><td class="text-center">
+
+				<% if device.camera %>
+					<%= content_tag(:i, " on", class: "fa fa-video-camera fa-lg green") %>
+				<% else %>
+					<%= content_tag(:i, " off", class: "fa fa-video-camera fa-lg red") %>
+				<% end %>
+</td></tr>
+</table>
+

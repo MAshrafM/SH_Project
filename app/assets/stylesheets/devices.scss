@@ -1,0 +1,16 @@
+// Place all the styles related to the devices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$on: #5cb85c;
+$off:  #d9534f;
+
+.green{
+	color: $on;
+}
+
+.red{
+	color: $off;
+}
+
+
+

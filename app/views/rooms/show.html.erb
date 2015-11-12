@@ -1,0 +1,130 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+<h2>
+  <%= @room.name %>
+</h2>
+
+<p>
+  <strong>Description:</strong>
+  <%= @room.description %>
+</p>
+<div class="pull-right">
+<%= link_to 'Edit', edit_room_path(@room), class: "btn btn-primary" %>
+<%= link_to "Destroy", @room, method: :delete, data: {confirm: 'Are You Sure?'}, class: "btn btn-danger" %>
+</div>
+</div>
+<div style="padding:25px;"></div>
+<div class="device">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-6 col-md-offset-3">
+				<% if @room.devices.blank? %>
+					<h3>Add Devices </h3>
+				<% else %>
+					<%= render @room.devices.last %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+<% if @room.devices.blank? %>
+<div class="col-xs-12 col-md-4 col-md-offset-4"><a class="btn btn-default btn-lg btn-block" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Create
+</a>
+</div>
+<% else %>
+<div class="col-xs-12 col-md-4 col-md-offset-4"><a class="btn btn-default btn-lg btn-block" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Edit
+</a>
+</div>
+<% end %>
+</div>
+<div style="padding:25px;"></div>
+
+<div class="row">
+<div class="collapse" id="collapseExample">
+<div class="col-xs-6 col-xs-offset-3">
+	<%= form_for([@room, @room.devices.new], :html => {:class => "form-horizontal"}) do |f| %>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Light</label>
+			<div class="col-sm-6">
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-success">
+						<%= f.radio_button :light, true, :value=> true  %> 
+						<%= f.label :light, 'ON', :value => true %> 
+					</label>
+					<label class="btn btn-danger">
+						<%= f.radio_button :light, false, :value=> false %>
+						<%= f.label :light, 'OFF', :value => false %>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Door</label>
+			<div class="col-sm-6">
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-success">
+						<%= f.radio_button :door, true, :value=> true %> 
+						<%= f.label :door, 'ON', :value => true %> 
+					</label>
+					<label class="btn btn-danger">
+						<%= f.radio_button :door, false, :value=> false %>
+						<%= f.label :door, 'OFF', :value => false %>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Shades</label>
+			<div class="col-sm-6">
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-success">
+						<%= f.radio_button :shade, true, :value=> true  %> 
+						<%= f.label :shade, 'ON', :value => true %> 
+					</label>
+					<label class="btn btn-danger">
+						<%= f.radio_button :shade, false, :value=> false %>
+						<%= f.label :shade, 'OFF', :value => false %>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Camera</label>
+			<div class="col-sm-6">
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-success">
+						<%= f.radio_button :camera, true, :value=> true  %> 
+						<%= f.label :camera, 'ON', :value => true %> 
+					</label>
+					<label class="btn btn-danger">
+						<%= f.radio_button :camera, false, :value=> false %>
+						<%= f.label :camera, 'OFF', :value => false %>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-4 control-label">AC</label>
+			<div class="col-sm-6">
+				<%= f.select :ac, (21..27).map{|i| [i,i]} %>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-3">
+				<%= f.submit "Update", :class => "btn btn-primary btn-block" %>
+			</div>
+		</div>
+	<% end %>
+</div>
+</div>
+</div>
+
+<div style="padding:20px;"></div>
+<%= link_to content_tag(:i, "", class: "fa fa-arrow-left fa-lg"), rooms_path %>
+<div style="padding:30px;"></div>
+</div>

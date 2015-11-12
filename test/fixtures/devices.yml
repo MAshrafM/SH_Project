@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  light: false
+  door: false
+  camera: false
+  shade: false
+  ac: 1
+  room_id: 
+
+two:
+  light: false
+  door: false
+  camera: false
+  shade: false
+  ac: 1
+  room_id: 

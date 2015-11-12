@@ -1,0 +1,31 @@
+<div class="form-bord">
+<%= form_for(@room, :html => {class: "form-horizontal"}) do |f| %>
+  <% if @room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+		<label class="col-xs-3 control-label">Name</label>
+		<div class="col-xs-8">
+			<%= f.text_field :name, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-xs-3 control-label">Description</label>
+		<div class="col-xs-8">
+			<%= f.text_area :description, size: "10x10", :class => "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-4 col-xs-offset-4"><%= f.submit "Create", :class => "btn btn-primary btn-block"%></div>
+	</div>
+<% end %>
+</div>
