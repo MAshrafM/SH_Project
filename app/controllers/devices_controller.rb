@@ -10,9 +10,11 @@ class DevicesController < ApplicationController
 	def create
 	  @device = @room.devices.new(room_params)
 	  if @device.save
-		redirect_to @room, notice: "Successfuly updated"
+		flash[:success] = "Successfuly updated"
+		redirect_to @room #, notice: "Successfuly updated"
 	  else
-		redirect_to @room, alert: "Unable to update"
+		flash[:danger] = "Unable to update"
+		redirect_to @room #, alert: "Unable to update"
 	  end
 	end
 	

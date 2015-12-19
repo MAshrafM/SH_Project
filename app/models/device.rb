@@ -1,8 +1,8 @@
 class Device < ActiveRecord::Base
   belongs_to :room
-  #validates :light, presence: true
-  #validates :ac, presence: true
-  #validates :shade, presence: true
-  #validates :door, presence: true
-  #validates :camera, presence: true
+  validates_inclusion_of :light, in: [true, false]
+  validates_inclusion_of :shade, in: [true, false]
+  validates_inclusion_of :door, in: [true, false]
+  validates_inclusion_of :camera, in: [true, false]
+  validates :ac, presence: true
 end
