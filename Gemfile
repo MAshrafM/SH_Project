@@ -49,4 +49,5 @@ gem "font-awesome-rails"
 group :production do
 	gem 'pg'
 	gem 'rails_12factor'
+	gem "workless", "~> 1.1.3"
 end
