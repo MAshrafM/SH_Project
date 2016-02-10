@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+	@devices_log = @room.devices.last
   end
 
   # GET /rooms/new

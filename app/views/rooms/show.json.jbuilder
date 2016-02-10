@@ -1,1 +1,1 @@
-json.extract! @room.devices.last, :light, :ac, :shade, :door, :camera
+json.extract! @devices_log, :light, :ac, :shade, :door, :camera
