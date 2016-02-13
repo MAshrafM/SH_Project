@@ -14,6 +14,17 @@ Rails.application.routes.draw do
 	resources :devices
   end
   
+  #constraints subdomain: 'api' do
+  #  namespace :api, path: '/' do
+	#  resources :rooms, only: [:show]
+	#end
+  #end
+  namespace :api do
+	resources :rooms, only: [:show] do
+	  resources :devices, only: [:create]
+	end
+  end
+  
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   

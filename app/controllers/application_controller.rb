@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :ensure_login
+  
   helper_method :logged_in?, :current_user
   protected
     def ensure_login
