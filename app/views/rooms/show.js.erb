@@ -1,0 +1,5 @@
+$(function(){
+	setInterval(function(){
+		$("#dynamic").html("<%= j render @devices_log %>);
+	}, 5000);
+});
