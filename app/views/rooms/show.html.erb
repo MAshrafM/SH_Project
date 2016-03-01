@@ -132,13 +132,16 @@
 </div>
 
 <script>
-	$(function() {
-		var url = "<%= escape_javascript request.original_url %>";
+	$(function() {		
+		var url = window.location.href;
+		history.pushState(null, null, url);
 		url += ".json"
 	  setInterval(function(){
 		$.ajax({
 		  type: "GET",
 		  url: url,
+		  cache:false,
+		  contentType: "application/json",
 		  success: function (data) {
 			var light, ac, shade, door, camera;
 			ac = data.ac + "&#8451;";
