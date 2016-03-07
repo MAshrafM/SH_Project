@@ -55,11 +55,11 @@
 			<div class="col-sm-6">
 				<div class="btn-group" data-toggle="buttons">
 					<label class="btn btn-success">
-						<%= f.radio_button :light, true, :value=> true  %> 
+						<%= f.radio_button :light, true, :value=> true, :checked => @devices_log.light %> 
 						<%= f.label :light, 'ON', :value => true %> 
 					</label>
 					<label class="btn btn-danger">
-						<%= f.radio_button :light, false, :value=> false %>
+						<%= f.radio_button :light, false, :value=> false, :checked => !@devices_log.light %>
 						<%= f.label :light, 'OFF', :value => false %>
 					</label>
 				</div>
@@ -70,11 +70,11 @@
 			<div class="col-sm-6">
 				<div class="btn-group" data-toggle="buttons">
 					<label class="btn btn-success">
-						<%= f.radio_button :door, true, :value=> true %> 
+						<%= f.radio_button :door, true, :value=> true, :checked => @devices_log.door %> 
 						<%= f.label :door, 'ON', :value => true %> 
 					</label>
 					<label class="btn btn-danger">
-						<%= f.radio_button :door, false, :value=> false %>
+						<%= f.radio_button :door, false, :value=> false, :checked => !@devices_log.door %>
 						<%= f.label :door, 'OFF', :value => false %>
 					</label>
 				</div>
@@ -85,11 +85,11 @@
 			<div class="col-sm-6">
 				<div class="btn-group" data-toggle="buttons">
 					<label class="btn btn-success">
-						<%= f.radio_button :shade, true, :value=> true  %> 
+						<%= f.radio_button :shade, true, :value=> true, :checked => @devices_log.shade  %> 
 						<%= f.label :shade, 'ON', :value => true %> 
 					</label>
 					<label class="btn btn-danger">
-						<%= f.radio_button :shade, false, :value=> false %>
+						<%= f.radio_button :shade, false, :value=> false, :checked => !@devices_log.shade %>
 						<%= f.label :shade, 'OFF', :value => false %>
 					</label>
 				</div>
@@ -100,11 +100,11 @@
 			<div class="col-sm-6">
 				<div class="btn-group" data-toggle="buttons">
 					<label class="btn btn-success">
-						<%= f.radio_button :camera, true, :value=> true  %> 
+						<%= f.radio_button :camera, true, :value=> true, :checked => @devices_log.camera  %> 
 						<%= f.label :camera, 'ON', :value => true %> 
 					</label>
 					<label class="btn btn-danger">
-						<%= f.radio_button :camera, false, :value=> false %>
+						<%= f.radio_button :camera, false, :value=> false, :checked => !@devices_log.camera %>
 						<%= f.label :camera, 'OFF', :value => false %>
 					</label>
 				</div>
@@ -113,7 +113,9 @@
 		<div class="form-group">
 			<label class="col-sm-4 control-label">AC</label>
 			<div class="col-sm-6">
-				<%= f.select :ac, (21..27).map{|i| [i,i]} %>
+				<% op = (18..35).map{|i| [i,i]} %>
+				<% op.unshift([0,0]) %>
+				<%= f.select :ac, options_for_select(op) %>
 			</div>
 		</div>
 		<div class="form-group">
@@ -144,7 +146,7 @@
 		  contentType: "application/json",
 		  success: function (data) {
 			var light, ac, shade, door, camera;
-			ac = data.ac + "&#8451;";
+			ac = data.ac + " &#8451;";
 			if(data.light){light = "<i class='fa fa-lightbulb-o fa-lg green'> on</i>";}else{light = "<i class='fa fa-lightbulb-o fa-lg red'> off</i>";}
 			if(data.door){door = "<i class='fa fa-home fa-lg green'> on</i>";}else{door = "<i class='fa fa-home fa-lg red'> off</i>";}if(data.shade){shade = "<i class='fa fa-th-large fa-lg green'> on</i>";}else{shade = "<i class='fa fa-th-large fa-lg red'> off</i>";}if(data.camera){camera = "<i class='fa fa-video-camera fa-lg green'> on</i>";}else{camera = "<i class='fa fa-video-camera fa-lg red'> off</i>";}
 			$("#dynamic").html("<table class='table table-bordered'><tr><th>Device</th><th class='text-center'>Status</th></tr><tr><td>Light</td><td class='text-center'>"+light+"</td></tr><tr><td>AC</td><td class='text-center'>"+ac+"</td></tr><tr><td>Door</td><td class='text-center'>"+door+"</td></tr><tr><td>Shades</td><td class='text-center'>"+shade+"</td></tr><tr><td>Camera</td><td class='text-center'>"+camera+"</td></tr></table>");
