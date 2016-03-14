@@ -3,12 +3,12 @@
     <label class="col-sm-4 control-label">Light</label>
     <div class="col-sm-6">
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-success">
-          <%= f.radio_button :light, true, :value=> true, :checked => @devices_log.light %>
+        <label class="btn btn-success <%= check_light? ? 'active' : ' '%>">
+          <%= f.radio_button :light, true, :value=> true, :checked => check_light? %>
           <%= f.label :light, 'ON', :value => true %>
         </label>
-        <label class="btn btn-danger">
-          <%= f.radio_button :light, false, :value=> false, :checked => !@devices_log.light %>
+        <label class="btn btn-danger <%= !check_light? ? 'active' : ' '%>">
+          <%= f.radio_button :light, false, :value=> false, :checked => !check_light? %>
           <%= f.label :light, 'OFF', :value => false %>
         </label>
       </div>
@@ -18,12 +18,12 @@
     <label class="col-sm-4 control-label">Door</label>
     <div class="col-sm-6">
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-success">
-          <%= f.radio_button :door, true, :value=> true, :checked => @devices_log.door %>
+        <label class="btn btn-success <%= check_door? ? 'active' : ' '%>">
+          <%= f.radio_button :door, true, :value=> true, :checked => check_door?  %>
           <%= f.label :door, 'ON', :value => true %>
         </label>
-        <label class="btn btn-danger">
-          <%= f.radio_button :door, false, :value=> false, :checked => !@devices_log.door %>
+        <label class="btn btn-danger <%= !check_door? ? 'active' : ' '%>">
+          <%= f.radio_button :door, false, :value=> false, :checked => !check_door? %>
           <%= f.label :door, 'OFF', :value => false %>
         </label>
       </div>
@@ -33,12 +33,12 @@
     <label class="col-sm-4 control-label">Shades</label>
     <div class="col-sm-6">
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-success">
-          <%= f.radio_button :shade, true, :value=> true, :checked => @devices_log.shade  %>
+        <label class="btn btn-success <%= check_shade? ? 'active' : ' '%>">
+          <%= f.radio_button :shade, true, :value=> true, :checked => check_shade?  %>
           <%= f.label :shade, 'ON', :value => true %>
         </label>
-        <label class="btn btn-danger">
-          <%= f.radio_button :shade, false, :value=> false, :checked => !@devices_log.shade %>
+        <label class="btn btn-danger <%= !check_shade? ? 'active' : ' '%>">
+          <%= f.radio_button :shade, false, :value=> false, :checked => !check_shade? %>
           <%= f.label :shade, 'OFF', :value => false %>
         </label>
       </div>
@@ -48,12 +48,12 @@
     <label class="col-sm-4 control-label">Camera</label>
     <div class="col-sm-6">
       <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-success">
-          <%= f.radio_button :camera, true, :value=> true, :checked => @devices_log.camera  %>
+        <label class="btn btn-success <%= check_camera? ? 'active' : ' '%>">
+          <%= f.radio_button :camera, true, :value=> true, :checked => check_camera?  %>
           <%= f.label :camera, 'ON', :value => true %>
         </label>
-        <label class="btn btn-danger">
-          <%= f.radio_button :camera, false, :value=> false, :checked => !@devices_log.camera %>
+        <label class="btn btn-danger <%= !check_camera? ? 'active' : ' '%>">
+          <%= f.radio_button :camera, false, :value=> false, :checked => !check_camera? %>
           <%= f.label :camera, 'OFF', :value => false %>
         </label>
       </div>
@@ -64,7 +64,7 @@
     <div class="col-sm-6">
       <% op = (18..35).map{|i| [i,i]} %>
       <% op.unshift([0,0]) %>
-      <%= f.select :ac, options_for_select(op, [@devices_log.ac, @devices_log.ac]) %>
+      <%= f.select :ac, options_for_select(op, [check_ac, check_ac]) %>
     </div>
   </div>
   <div class="form-group">

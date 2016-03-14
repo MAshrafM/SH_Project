@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
   before_action :set_room, except: [:index, :new, :create]
 
+  helper_method :check_light?, :check_door?, :check_shade?, :check_camera?, :check_ac
+
   # GET /rooms
   # GET /rooms.json
   def index
@@ -10,7 +12,6 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-	@devices_log = @room.devices.last
   end
 
   # GET /rooms/new
@@ -62,10 +63,31 @@ class RoomsController < ApplicationController
     end
   end
 
+  def check_light?
+    @devices_log? @devices_log.light : false
+  end
+
+  def check_door?
+    @devices_log? @devices_log.door : false
+  end
+
+  def check_shade?
+    @devices_log? @devices_log.shade : false
+  end
+
+  def check_camera?
+    @devices_log? @devices_log.camera : false
+  end
+
+  def check_ac
+    @devices_log? @devices_log.ac : 21
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = current_user.rooms.find(params[:id])
+      @devices_log = @room.devices.last
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
