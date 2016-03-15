@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, except: [:index, :new, :create]
 
-  helper_method :check_light?, :check_door?, :check_shade?, :check_camera?, :check_ac
+  helper_method :check_state, :add_active
 
   # GET /rooms
   # GET /rooms.json
@@ -63,24 +63,21 @@ class RoomsController < ApplicationController
     end
   end
 
-  def check_light?
-    @devices_log? @devices_log.light : false
+
+  def check_state(arg)
+    if arg == :ac
+      @devices_log? @devices_log.ac : 21
+    else
+      @devices_log? @devices_log[arg] : false
+    end
   end
 
-  def check_door?
-    @devices_log? @devices_log.door : false
-  end
-
-  def check_shade?
-    @devices_log? @devices_log.shade : false
-  end
-
-  def check_camera?
-    @devices_log? @devices_log.camera : false
-  end
-
-  def check_ac
-    @devices_log? @devices_log.ac : 21
+  def add_active(arg, state)
+    if state
+      check_state(arg) ? "active" : ""
+    else
+      !check_state(arg) ? "active" : ""
+    end
   end
 
   private
