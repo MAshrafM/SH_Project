@@ -80,7 +80,7 @@
 			var light, ac, shade, door, camera;
 			ac = data.ac + " &#8451;";
 			if(data.light){light = "<i class='fa fa-lightbulb-o fa-lg green'> on</i>";}else{light = "<i class='fa fa-lightbulb-o fa-lg red'> off</i>";}
-			if(data.door){door = "<i class='fa fa-home fa-lg green'> on</i>";}else{door = "<i class='fa fa-home fa-lg red'> off</i>";}if(data.shade){shade = "<i class='fa fa-th-large fa-lg green'> on</i>";}else{shade = "<i class='fa fa-th-large fa-lg red'> off</i>";}if(data.camera){camera = "<i class='fa fa-video-camera fa-lg green'> on</i>";}else{camera = "<i class='fa fa-video-camera fa-lg red'> off</i>";}
+			if(data.door){door = "<i class='fa fa-home fa-lg green'> on</i>";}else{door = "<i class='fa fa-home fa-lg red'> off</i>";}if(data.shade){shade = "<i class='fa fa-th-large fa-lg green'> on</i>";}else{shade = "<i class='fa fa-th-large fa-lg red'> off</i>";}if(data.camera){camera = "<i class='fa fa-video-camera fa-lg green'> on</i>";}else{camera = "<i class='fa fa-video-camera fa-lg red'> off</i> &nbsp; <a href='https://www.dropbox.com/s/l5ucqixqfnp7hhg/image.jpg?dl=0' target='popup' onclick=\"window.open('https://www.dropbox.com/s/l5ucqixqfnp7hhg/image.jpg?dl=0','Image','width=600,height=400') \"><i class='fa fa-external-link fa-lg'></i></a>";}
 			$("#dynamic").html("<table class='table table-bordered'><tr><th>Device</th><th class='text-center'>Status</th></tr><tr><td>Light</td><td class='text-center'>"+light+"</td></tr><tr><td>AC</td><td class='text-center'>"+ac+"</td></tr><tr><td>Door</td><td class='text-center'>"+door+"</td></tr><tr><td>Shades</td><td class='text-center'>"+shade+"</td></tr><tr><td>Camera</td><td class='text-center'>"+camera+"</td></tr></table>");
 			return true;
 		 }});

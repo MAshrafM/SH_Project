@@ -28,7 +28,8 @@
 				<% if device.camera %>
 					<%= content_tag(:i, " on", class: "fa fa-video-camera fa-lg green") %>
 				<% else %>
-					<%= content_tag(:i, " off", class: "fa fa-video-camera fa-lg red") %>
+					<%= content_tag(:i, " off", class: "fa fa-video-camera fa-lg red") %> &nbsp; 
+					<%= link_to content_tag(:i, "", class: "fa fa-external-link fa-lg"), "https://www.dropbox.com/s/l5ucqixqfnp7hhg/image.jpg?dl=0", :target => "popup", :onclick => "window.open('https://www.dropbox.com/s/l5ucqixqfnp7hhg/image.jpg?dl=0','Image','width=600,height=400')" %>
 				<% end %>
 </td></tr>
 </table>
